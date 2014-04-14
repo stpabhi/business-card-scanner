@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-
+#import <TesseractOCR/Tesseract.h>
+#import "ImageProcessingProtocol.h"
+#import "ImageProcessingImplementation.h"
+@import AddressBook;
+@import AddressBookUI;
+@interface ViewController : UIViewController <TesseractDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,ABNewPersonViewControllerDelegate,ImageProcessingImplementationDelegate>
+- (IBAction)accessPhotos:(id)sender;
+- (IBAction)openCamera:(id)sender;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *resultViews;
+@property (strong, nonatomic) id <ImageProcessingProtocol> imageProcessor;
 @end
