@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <TesseractOCR/Tesseract.h>
+@import AssetsLibrary;
 #import "ImageProcessingProtocol.h"
 #import "ImageProcessingImplementation.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 @import AddressBook;
 @import AddressBookUI;
 @interface ViewController : UIViewController <TesseractDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,ABNewPersonViewControllerDelegate,ImageProcessingImplementationDelegate>
 - (IBAction)accessPhotos:(id)sender;
 - (IBAction)openCamera:(id)sender;
+-(NSString *)processOCR:(UIImage *)image;
+@property (strong, atomic) ALAssetsLibrary* library;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *resultViews;
 @property (strong, nonatomic) id <ImageProcessingProtocol> imageProcessor;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property(nonatomic, strong) NSArray *assets;
 @end

@@ -10,8 +10,17 @@
 #import "ContactsViewController.h"
 #import "ImageProcessingImplementation.h"
 #import "TestViewController.h"
-@interface ViewController ()
+#import "CustomImagePickerController.h"
+#import "CustomCameraView.h"
+#import "PhotoCell.h"
+//transform values for full screen support
+#define CAMERA_TRANSFORM_X 1
+#define CAMERA_TRANSFORM_Y 1.12412
+//iphone screen dimensions
+#define SCREEN_WIDTH  320
+#define SCREEN_HEIGTH 481
 
+@interface ViewController ()
 @end
 
 @implementation ViewController
@@ -25,30 +34,91 @@
     
     //self.navigationController.navigationBar.backgroundColor = [UIColor darkTextColor];
     //self.view.backgroundColor = [UIColor colorWithRed:128/255.0f green:128/255.0f blue:128/255.0f alpha:1.0];
-    self.view.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
+    //self.view.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
+    self.collectionView.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
+    _assets = [@[] mutableCopy];
+    __block NSMutableArray *tmpAssets = [@[] mutableCopy];
+    // 1
+    ALAssetsLibrary *assetsLibrary = [ViewController defaultAssetsLibrary];
+    // 2
+    [assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        if ([@"Tesseract" compare: [group valueForProperty:ALAssetsGroupPropertyName]]==NSOrderedSame) {
+            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                if(result)
+                {
+                    // 3
+                    [tmpAssets addObject:result];
+                }
+            }];
+        }
+        // 4
+        //NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+        //self.assets = [tmpAssets sortedArrayUsingDescriptors:@[sort]];
+        self.assets = tmpAssets;
+        
+        // 5
+        [self.collectionView reloadData];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Error loading images %@", error);
+    }];
+
     
+}
++ (ALAssetsLibrary *)defaultAssetsLibrary
+{
+    static dispatch_once_t pred = 0;
+    static ALAssetsLibrary *library = nil;
+    dispatch_once(&pred, ^{
+        library = [[ALAssetsLibrary alloc] init];
+    });
+    return library;
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //self.imageProcessor = [[ImageProcessingImplementation alloc]init];
     
-	// Do any additional setup after loading the view, typically from a nib.
-//    
-//    
-//    Tesseract* tesseract = [[Tesseract alloc] initWithLanguage:@"eng"];
-//    tesseract.delegate = self;
-//    
-//    //[tesseract setVariableValue:@"0123456789" forKey:@"tessedit_char_whitelist"]; //limit search
-//    [tesseract setImage:[UIImage imageNamed:@"3.jpg"]]; //image to check
-//    
-//    [tesseract recognize];
-//    
-//    NSLog(@"%@", [tesseract recognizedText]);
-//    
-//    tesseract = nil; //deallocate and free all memory
-    self.imageProcessor = [[ImageProcessingImplementation alloc]init];
-
 }
+
+#pragma mark - collection view data source
+
+- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.assets.count;
+}
+
+- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCell *cell = (PhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
+    
+    ALAsset *asset = self.assets[indexPath.row];
+    cell.asset = asset;
+    cell.backgroundColor = [UIColor redColor];
+    
+    return cell;
+}
+
+- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 4;
+}
+
+- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 1;
+}
+
+#pragma mark - collection view delegate
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ALAsset *asset = self.assets[indexPath.row];
+    ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
+    UIImage *image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
+    // Do something with the image
+    
+}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -59,36 +129,41 @@
 
 
 - (IBAction)accessPhotos:(id)sender {
-    UIImagePickerController *imgPicker = [UIImagePickerController new];
+    CustomImagePickerController *imgPicker = [[CustomImagePickerController alloc]init];
     imgPicker.delegate = self;
     imgPicker.allowsEditing = YES;
     
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    if([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
         imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-         imgPicker.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
-      
-    //imgPicker.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+        imgPicker.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
         [self presentViewController:imgPicker animated:YES completion:nil];
     }
 
 }
 
 - (IBAction)openCamera:(id)sender {
-    NSLog(@"Boom Camera Opened!");
-    UIImagePickerController *imgPicker = [UIImagePickerController new];
-    imgPicker.delegate = self;
-    //imgPicker.allowsEditing = YES;
-   
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    CustomImagePickerController *customVC = [[CustomImagePickerController alloc]init];
+    customVC.delegate = self;
+    if([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
-        imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        imgPicker.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        customVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        //self.showsCameraControls = NO;
+        //customVC.navigationBarHidden = YES;
+        //customVC.toolbarHidden = YES;
         
-//        imgPicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-//        imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-//        imgPicker.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:imgPicker animated:YES completion:nil];
+        //self.wantsFullScreenLayout = YES;
+//        customVC.cameraViewTransform =
+//        CGAffineTransformScale(customVC.cameraViewTransform,
+//                               CAMERA_TRANSFORM_X,
+//                               CAMERA_TRANSFORM_Y);
+        
+        CustomCameraView *overlay = [[CustomCameraView alloc]
+                                     initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
+        //set our custom overlay view
+        customVC.cameraOverlayView = overlay;
+        customVC.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        [self presentViewController:customVC animated:YES completion:nil];
     }
 }
 
@@ -156,57 +231,28 @@
     
 	return result;	
 }
-
+@synthesize library = _library;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
    
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    
-    //chosenImage = [self imageWithImage:chosenImage scaledToSize:CGSizeMake(320, 320)];
-//        NSMutableArray *tmpImages = [NSMutableArray arrayWithArray:self.resultViews];
-//        [tmpImages addObjectsFromArray:@[chosenImage]];
-//        self.resultViews = tmpImages;
-//    for(UIImageView *imageView in self.resultViews)
-//    {
-//        UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10,150,300)];
-//        imgView.image = imageView.image;
-//        [self.view addSubview:imgView];
-//        
-//    }
-//    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 20,200,300)];
-//    imgView.image = chosenImage;
-//    imgView.userInteractionEnabled = YES;
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+    //chosenImage = [self resizeImage:chosenImage];
+//    CGRect cropRect = CGRectMake(50,100, 220, 380);
 //    
-//    [self.view addSubview:imgView];
-//    UIImageView *firstImageView = (UIImageView *)self.resultViews.firstObject;
-//    CGFloat xPos = firstImageView.frame.origin.x;
-//    CGFloat yPos = firstImageView.frame.origin.x;
-//    CGFloat width = firstImageView.frame.size.width;
-//    CGFloat height = firstImageView.frame.size.height;
+//    CGImageRef imageRef = CGImageCreateWithImageInRect([chosenImage CGImage], cropRect);
+//    chosenImage = [UIImage imageWithCGImage:imageRef];
     
-//    for (int i = 1;i<sef.resultViews.count;i++)
-//    {
-//        
-//    }
-//    for(UIImageView *imageView in self.resultViews)
-//    {
-//      UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(xPos, yPos,width,height)];
-//        imageView.image = chosenImage;
-//        
-//    }
-//
-
-//    imageView.image = chosenImage;
-//
-//
-//    [self.view addSubview:imageView];
-    [picker dismissViewControllerAnimated:YES completion:^{
-//        ContactsViewController *contactVC = [[ContactsViewController alloc] init];
-//        //UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:contactVC];
-//        [self presentViewController:contactVC animated:YES completion:nil];
-      
-
+    
+     
+     [picker dismissViewControllerAnimated:YES completion:^{
+         _library = [[ALAssetsLibrary alloc]init];
+         [self.library saveImage:chosenImage toAlbum:@"Tesseract" withCompletionBlock:^(NSError *error) {
+             if (error!=nil) {
+                 NSLog(@"Big error: %@", [error description]);
+             }
+             }];
+         
         ContactsViewController *contact = [[ContactsViewController alloc]init];
-        
+         
         ABNewPersonViewController *newPerson = [[ABNewPersonViewController alloc]init];
         newPerson.newPersonViewDelegate = self;
         NSString *totalString = [self processOCR:chosenImage];
@@ -217,7 +263,7 @@
         NSMutableArray *contactData =  [[NSMutableArray alloc]init];
         for(NSString *regexValue in regularExpressionCollectionValues)
         {
-            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:nil error:NULL];
+            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionCaseInsensitive error:NULL];
             
             NSTextCheckingResult *match = [regularExpression firstMatchInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
             // [match rangeAtIndex:1] gives the range of the group in parentheses
@@ -237,26 +283,17 @@
 }
 -(NSString *)processOCR:(UIImage *)image
 {
-        Tesseract* tesseract = [[Tesseract alloc] initWithLanguage:@"eng"];
-        tesseract.delegate = self;
+    Tesseract* tesseract = [[Tesseract alloc] initWithLanguage:@"eng"];
+    tesseract.delegate = self;
     
-        [tesseract setVariableValue:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.(),-&/" forKey:@"tessedit_char_whitelist"];
-        [tesseract setImage:image]; //image to check
+    [tesseract setVariableValue:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.(),-&/" forKey:@"tessedit_char_whitelist"];
+    [tesseract setImage:image]; //image to check
     
-        [tesseract recognize];
+    [tesseract recognize];
     
-        return [tesseract recognizedText];
+    return [tesseract recognizedText];
     
-        tesseract = nil; //deallocate and free all memory
-//
-//    ImageProcessingImplementation* tesseract = [[ImageProcessingImplementation alloc] initWithLanguage:@"eng"];
-//    tesseract.delegate = self;
-//    
-//    [tesseract setVariableValue:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.(),-&/" forKey:@"tessedit_char_whitelist"]; //limit search
-//    
-//    
-//    [tesseract setImage:[tesseract processImage:image]];
-//    // [tesseract recognize];
+    tesseract = nil; //deallocate and free all memory
     return [tesseract recognizedText];
 
 }

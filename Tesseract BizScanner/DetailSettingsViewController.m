@@ -25,7 +25,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.detailSettingsText.text = @"Tesseract Scanner";
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"license" ofType:@"txt"];
+    NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    self.detailSettingsText.text = content;
+    self.detailSettingsText.editable = NO;
+    self.detailSettingsText.selectable = NO;
     
 }
 
