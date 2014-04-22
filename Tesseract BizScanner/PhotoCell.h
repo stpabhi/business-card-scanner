@@ -12,5 +12,6 @@
 @property(nonatomic, strong) ALAsset *asset;
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end

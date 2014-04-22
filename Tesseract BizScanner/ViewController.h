@@ -14,7 +14,7 @@
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 @import AddressBook;
 @import AddressBookUI;
-@interface ViewController : UIViewController <TesseractDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,ABNewPersonViewControllerDelegate,ImageProcessingImplementationDelegate>
+@interface ViewController : UIViewController <TesseractDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,ABNewPersonViewControllerDelegate,ImageProcessingImplementationDelegate,ABPersonViewControllerDelegate>
 - (IBAction)accessPhotos:(id)sender;
 - (IBAction)openCamera:(id)sender;
 -(NSString *)processOCR:(UIImage *)image;
@@ -23,4 +23,5 @@
 @property (strong, nonatomic) id <ImageProcessingProtocol> imageProcessor;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(nonatomic, strong) NSArray *assets;
+
 @end

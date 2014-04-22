@@ -21,6 +21,8 @@
 #define SCREEN_HEIGTH 481
 
 @interface ViewController ()
+@property CustomImagePickerController *customVC;
+@property NSString *collectionViewCellTag;
 @end
 
 @implementation ViewController
@@ -76,6 +78,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.customVC = [[CustomImagePickerController alloc]init];
     //self.imageProcessor = [[ImageProcessingImplementation alloc]init];
     
 }
@@ -93,8 +96,8 @@
     
     ALAsset *asset = self.assets[indexPath.row];
     cell.asset = asset;
-    cell.backgroundColor = [UIColor redColor];
-    
+    cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
+
     return cell;
 }
 
@@ -116,10 +119,24 @@
     ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
     UIImage *image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
     // Do something with the image
-    
+     PhotoCell *cell = (PhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
+    cell.textLabel.hidden = YES;
+    cell.textLabel.text = self.collectionViewCellTag;
+    NSLog(@"index %d and %@",indexPath.row, cell.textLabel.text);
+    //NSLog(@"%@",[self findNameForContactWithPhoneNumber:cell.textLabel.text]);
+    ABPersonViewController *picker = [[ABPersonViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:picker];
+    picker.personViewDelegate = self;
+    picker.displayedPerson = (__bridge ABRecordRef)([self findNameForContactWithPhoneNumber:cell.textLabel.text]);
+    picker.displayedProperties = [NSArray arrayWithObjects: [NSNumber numberWithInt:kABPersonPhoneProperty], nil];
+    picker.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel",nil) style:UIBarButtonItemStylePlain target:self action:@selector(ReturnFromPersonView:)];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
-
+-(void)ReturnFromPersonView:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -135,7 +152,6 @@
     
     if([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
-        imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imgPicker.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
         [self presentViewController:imgPicker animated:YES completion:nil];
     }
@@ -143,11 +159,12 @@
 }
 
 - (IBAction)openCamera:(id)sender {
-    CustomImagePickerController *customVC = [[CustomImagePickerController alloc]init];
-    customVC.delegate = self;
+    //CustomImagePickerController *customVC = [[CustomImagePickerController alloc]init];
+    self.customVC.delegate = self;
+    
     if([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
-        customVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.customVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         //self.showsCameraControls = NO;
         //customVC.navigationBarHidden = YES;
         //customVC.toolbarHidden = YES;
@@ -161,79 +178,81 @@
         CustomCameraView *overlay = [[CustomCameraView alloc]
                                      initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
         //set our custom overlay view
-        customVC.cameraOverlayView = overlay;
-        customVC.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
-        [self presentViewController:customVC animated:YES completion:nil];
+        self.customVC.cameraOverlayView = overlay;
+        self.customVC.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        [self presentViewController:self.customVC animated:YES completion:nil];
     }
 }
 
-- (UIImage*)imageWithImage:(UIImage*)image
-              scaledToSize:(CGSize)newSize;
-{
-    UIGraphicsBeginImageContext( newSize );
-    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
--(UIImage *)resizeImage:(UIImage *)image {
-    
-	CGImageRef imageRef = [image CGImage];
-	CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef);
-	CGColorSpaceRef colorSpaceInfo = CGColorSpaceCreateDeviceRGB();
-    
-	if (alphaInfo == kCGImageAlphaNone)
-		alphaInfo = kCGImageAlphaNoneSkipLast;
-    
-	int width, height;
-    
-	width = 640;//[image size].width;
-	height = 640;//[image size].height;
-    
-	CGContextRef bitmap;
-    
-	if (image.imageOrientation == UIImageOrientationUp | image.imageOrientation == UIImageOrientationDown) {
-		bitmap = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
-        
-	} else {
-		bitmap = CGBitmapContextCreate(NULL, height, width, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
-        
-	}
-    
-	if (image.imageOrientation == UIImageOrientationLeft) {
-		NSLog(@"image orientation left");
-		CGContextRotateCTM(bitmap, 90);
-		CGContextTranslateCTM (bitmap, 0, -height);
-        
-	} else if (image.imageOrientation == UIImageOrientationRight) {
-		NSLog(@"image orientation right");
-		CGContextRotateCTM (bitmap, -90);
-		CGContextTranslateCTM (bitmap, -width, 0);
-        
-	} else if (image.imageOrientation == UIImageOrientationUp) {
-		NSLog(@"image orientation up");
-        
-	} else if (image.imageOrientation == UIImageOrientationDown) {
-		NSLog(@"image orientation down");
-		CGContextTranslateCTM (bitmap, width,height);
-		CGContextRotateCTM (bitmap, -180);
-        
-	}
-    
-	CGContextDrawImage(bitmap, CGRectMake(0, 0, width, height), imageRef);
-	CGImageRef ref = CGBitmapContextCreateImage(bitmap);
-	UIImage *result = [UIImage imageWithCGImage:ref];
-    
-	CGContextRelease(bitmap);
-	CGImageRelease(ref);
-    
-	return result;	
-}
+//- (UIImage*)imageWithImage:(UIImage*)image
+//              scaledToSize:(CGSize)newSize;
+//{
+//    UIGraphicsBeginImageContext( newSize );
+//    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+//    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    return newImage;
+//}
+//
+//-(UIImage *)resizeImage:(UIImage *)image {
+//    
+//	CGImageRef imageRef = [image CGImage];
+//	CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef);
+//	CGColorSpaceRef colorSpaceInfo = CGColorSpaceCreateDeviceRGB();
+//    
+//	if (alphaInfo == kCGImageAlphaNone)
+//		alphaInfo = kCGImageAlphaNoneSkipLast;
+//    
+//	int width, height;
+//    
+//	width = 640;//[image size].width;
+//	height = 640;//[image size].height;
+//    
+//	CGContextRef bitmap;
+//    
+//	if (image.imageOrientation == UIImageOrientationUp | image.imageOrientation == UIImageOrientationDown) {
+//		bitmap = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
+//        
+//	} else {
+//		bitmap = CGBitmapContextCreate(NULL, height, width, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
+//        
+//	}
+//    
+//	if (image.imageOrientation == UIImageOrientationLeft) {
+//		NSLog(@"image orientation left");
+//		CGContextRotateCTM(bitmap, 90);
+//		CGContextTranslateCTM (bitmap, 0, -height);
+//        
+//	} else if (image.imageOrientation == UIImageOrientationRight) {
+//		NSLog(@"image orientation right");
+//		CGContextRotateCTM (bitmap, -90);
+//		CGContextTranslateCTM (bitmap, -width, 0);
+//        
+//	} else if (image.imageOrientation == UIImageOrientationUp) {
+//		NSLog(@"image orientation up");
+//        
+//	} else if (image.imageOrientation == UIImageOrientationDown) {
+//		NSLog(@"image orientation down");
+//		CGContextTranslateCTM (bitmap, width,height);
+//		CGContextRotateCTM (bitmap, -180);
+//        
+//	}
+//    
+//	CGContextDrawImage(bitmap, CGRectMake(0, 0, width, height), imageRef);
+//	CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+//	UIImage *result = [UIImage imageWithCGImage:ref];
+//    
+//	CGContextRelease(bitmap);
+//	CGImageRelease(ref);
+//    
+//	return result;	
+//}
 @synthesize library = _library;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-   
+    self.customVC.activityIndicator.color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0];
+    [self.customVC.activityIndicator startAnimating];
+    [self.customVC.view addSubview:self.customVC.activityIndicator];
     UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
     //chosenImage = [self resizeImage:chosenImage];
 //    CGRect cropRect = CGRectMake(50,100, 220, 380);
@@ -243,13 +262,13 @@
     
     
      
-     [picker dismissViewControllerAnimated:YES completion:^{
+    
          _library = [[ALAssetsLibrary alloc]init];
          [self.library saveImage:chosenImage toAlbum:@"Tesseract" withCompletionBlock:^(NSError *error) {
              if (error!=nil) {
                  NSLog(@"Big error: %@", [error description]);
              }
-             }];
+             
          
         ContactsViewController *contact = [[ContactsViewController alloc]init];
          
@@ -263,7 +282,7 @@
         NSMutableArray *contactData =  [[NSMutableArray alloc]init];
         for(NSString *regexValue in regularExpressionCollectionValues)
         {
-            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionCaseInsensitive error:NULL];
+            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionSearch error:NULL];
             
             NSTextCheckingResult *match = [regularExpression firstMatchInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
             // [match rangeAtIndex:1] gives the range of the group in parentheses
@@ -273,11 +292,13 @@
         ABRecordRef newRecord = [contact newContact:contactData];
         [newPerson setDisplayedPerson:newRecord];
         CFRelease(newRecord);
-        UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:newPerson];
-        //navController.navigationItem.rightBarButtonItem. = @"Save";
-        
-        [self presentViewController:navController animated:YES completion:nil];
-        
+             [self.customVC.activityIndicator stopAnimating];
+             [picker dismissViewControllerAnimated:YES completion:^{
+                 UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:newPerson];
+                 //navController.navigationItem.rightBarButtonItem. = @"Save";
+                 
+                 [self presentViewController:navController animated:YES completion:nil];
+             }];
     }];
     
 }
@@ -297,6 +318,38 @@
     return [tesseract recognizedText];
 
 }
+
+- (id)findNameForContactWithPhoneNumber:(NSString *)phoneNumber {
+    CFErrorRef error = nil;
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, &error);
+    
+    // Get all contacts in the addressbook
+	NSArray *allPeople = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
+    
+	for (id person in allPeople) {
+        // Get all phone numbers of a contact
+        ABMultiValueRef phoneNumbers = ABRecordCopyValue((__bridge ABRecordRef)(person), kABPersonPhoneProperty);
+        
+        // If the contact has multiple phone numbers, iterate on each of them
+        for (int i = 0; i < ABMultiValueGetCount(phoneNumbers); i++) {
+            NSString *phone = (__bridge_transfer NSString*)ABMultiValueCopyValueAtIndex(phoneNumbers, i);
+            
+            // Remove all formatting symbols that might be in both phone number being compared
+            NSCharacterSet *toExclude = [NSCharacterSet characterSetWithCharactersInString:@"/.()- "];
+            phone = [[phone componentsSeparatedByCharactersInSet:toExclude] componentsJoinedByString: @""];
+            phoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet:toExclude] componentsJoinedByString: @""];
+            
+            if ([phone isEqualToString:phoneNumber]) {
+                NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue((__bridge ABRecordRef)(person), kABPersonFirstNameProperty);
+                NSString *lastName = (__bridge_transfer NSString*)ABRecordCopyValue((__bridge ABRecordRef)(person), kABPersonLastNameProperty);
+                return person;
+                //return [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+            }
+        }
+    }
+    
+    return nil;
+}
 -(void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person
 {
     if (person) {
@@ -304,6 +357,9 @@
         ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, &error);
         ABAddressBookAddRecord(addressBook, person, nil);
         ABAddressBookSave(addressBook, nil);
+        ABMultiValueRef numbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        NSString *targetNumber = (__bridge NSString *) ABMultiValueCopyValueAtIndex(numbers, 0);
+        self.collectionViewCellTag = targetNumber;
         CFRelease(addressBook);
     }
     [self.navigationController popViewControllerAnimated:YES];

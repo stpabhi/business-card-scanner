@@ -18,13 +18,22 @@
 
 @implementation CustomImagePickerController
 
-
+-(id)init
+{
+    self = [super init];
+    if(self)
+    {
+        _activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _activityIndicator.center = self.view.center;
+        
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

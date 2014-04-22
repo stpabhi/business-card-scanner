@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomImagePickerController : UIImagePickerController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property UIActivityIndicatorView *activityIndicator;
+-(id)init;
 @end

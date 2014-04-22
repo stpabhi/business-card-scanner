@@ -67,7 +67,6 @@
     ALAsset *asset = self.assets[indexPath.row];
     cell.asset = asset;
     cell.backgroundColor = [UIColor redColor];
-    
     return cell;
 }
 
@@ -89,6 +88,7 @@
     ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
     UIImage *image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
     // Do something with the image
+    NSLog(@"boom");
 }
 
 #pragma mark - assets
@@ -101,46 +101,6 @@
         library = [[ALAssetsLibrary alloc] init];
     });
     return library;
-}
-
-#pragma mark - Actions
-
-- (IBAction)takePhotoButtonTapped:(id)sender
-{
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypeCamera] == NO))
-        return;
-    
-    UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
-    mediaUI.sourceType = UIImagePickerControllerSourceTypeCamera;
-    mediaUI.allowsEditing = NO;
-    mediaUI.delegate = self;
-    [self presentViewController:mediaUI animated:YES completion:nil];
-}
-
-- (IBAction)albumsButtonTapped:(id)sender
-{
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypePhotoLibrary] == NO))
-        return;
-    
-    UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
-    mediaUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    mediaUI.allowsEditing = NO;
-    mediaUI.delegate = self;
-    [self presentViewController:mediaUI animated:YES completion:nil];
-    
-}
-
-#pragma mark - image picker delegate
-
-- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *image = (UIImage *) [info objectForKey:
-                                  UIImagePickerControllerOriginalImage];
-    [self dismissViewControllerAnimated:YES completion:^{
-        // Do something with the image
-    }];
 }
 
 

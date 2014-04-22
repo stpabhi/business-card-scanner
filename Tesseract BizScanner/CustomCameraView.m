@@ -23,7 +23,7 @@
     }
     return self;
 }
-
+/*
 - (void)drawRect:(CGRect)rect
 {
     
@@ -45,4 +45,5 @@
     //draws the current path i.e. rectangle
     CGContextDrawPath(context, kCGPathFillStroke);
 }
+ */
 @end
