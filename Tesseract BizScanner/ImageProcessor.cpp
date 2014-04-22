@@ -105,9 +105,9 @@ int ImageProcessor::correctRotation(cv::Mat &image, cv::Mat &output, float heigh
 	//lineas de hough
 	//cv::HoughLinesP(image, lines, 1, CV_PI/180, 50, 50, 10 );
 	cv::HoughLinesP(image, lines, 1, CV_PI/180, 80, 30, 10 );
-	double media=0;
+	//double media=0;
 	double ang=0;
-	int num=0;
+	//int num=0;
 	cuadrante c[4];
 	for (int i =0; i < 4;i++)
 	{

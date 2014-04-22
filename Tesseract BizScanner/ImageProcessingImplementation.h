@@ -35,7 +35,6 @@
 
 - (UIImage*) processImage:(UIImage*) src;
 - (NSString*) pathToLangugeFIle;
-- (NSString*) OCRImage:(UIImage*)src;
 - (UIImage*) processRotation:(UIImage*)src;
 - (UIImage*) processHistogram:(UIImage*)src;
 - (UIImage*) processFilter:(UIImage*)src;

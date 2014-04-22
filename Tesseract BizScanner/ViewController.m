@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "ContactsViewController.h"
 #import "ImageProcessingImplementation.h"
-#import "TestViewController.h"
 #import "CustomImagePickerController.h"
 #import "CustomCameraView.h"
 #import "PhotoCell.h"
@@ -115,15 +114,15 @@
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ALAsset *asset = self.assets[indexPath.row];
-    ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
-    UIImage *image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
+//    ALAsset *asset = self.assets[indexPath.row];
+//    ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
+    //UIImage *image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
     // Do something with the image
      PhotoCell *cell = (PhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
     cell.textLabel.hidden = YES;
     cell.textLabel.text = self.collectionViewCellTag;
-    NSLog(@"index %d and %@",indexPath.row, cell.textLabel.text);
-    //NSLog(@"%@",[self findNameForContactWithPhoneNumber:cell.textLabel.text]);
+    
+    
     ABPersonViewController *picker = [[ABPersonViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:picker];
     picker.personViewDelegate = self;
@@ -282,7 +281,7 @@
         NSMutableArray *contactData =  [[NSMutableArray alloc]init];
         for(NSString *regexValue in regularExpressionCollectionValues)
         {
-            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionSearch error:NULL];
+            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionAllowCommentsAndWhitespace error:NULL];
             
             NSTextCheckingResult *match = [regularExpression firstMatchInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
             // [match rangeAtIndex:1] gives the range of the group in parentheses
@@ -340,8 +339,8 @@
             phoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet:toExclude] componentsJoinedByString: @""];
             
             if ([phone isEqualToString:phoneNumber]) {
-                NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue((__bridge ABRecordRef)(person), kABPersonFirstNameProperty);
-                NSString *lastName = (__bridge_transfer NSString*)ABRecordCopyValue((__bridge ABRecordRef)(person), kABPersonLastNameProperty);
+//                NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue((__bridge ABRecordRef)(person), kABPersonFirstNameProperty);
+//                NSString *lastName = (__bridge_transfer NSString*)ABRecordCopyValue((__bridge ABRecordRef)(person), kABPersonLastNameProperty);
                 return person;
                 //return [NSString stringWithFormat:@"%@ %@", firstName, lastName];
             }
@@ -369,5 +368,9 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+}
+-(BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    return YES;
 }
 @end

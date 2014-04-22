@@ -319,10 +319,10 @@ namespace tesseract {
 }
 //- (NSString*) OCRImage{
 //    // init the tesseract engine.
-//    //tesseract::TessBaseAPI *tesseract = new tesseract::TessBaseAPI();
+//    tesseract::TessBaseAPI *tesseract = new tesseract::TessBaseAPI();
 //    
 //    
-//    //tesseract->Init([[self pathToLangugeFIle] cStringUsingEncoding:NSUTF8StringEncoding], "eng");
+//    tesseract->Init([[self pathToLangugeFIle] cStringUsingEncoding:NSUTF8StringEncoding], "eng");
 //    
 //    //Pass the UIIMage to cvmat and pass the sequence of pixel to tesseract
 //    

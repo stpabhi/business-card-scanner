@@ -87,7 +87,7 @@ IplImage preprocessing(IplImage* imgSrc,int new_width, int new_height)
     CvMat data;
     CvMat dataA;
     CvRect bb;//bounding box
-    CvRect bba;//boundinb box maintain aspect ratio
+    //CvRect bba;//boundinb box maintain aspect ratio
     
     //Find bounding box
     bb=findBB(imgSrc);
@@ -172,7 +172,7 @@ void sortCorners(std::vector<cv::Point2f>& corners, cv::Point2f center)
     
     cv::Mat disp_lines(size, CV_8UC1, cv::Scalar(0, 0, 0));
     double angle = 0.;
-    unsigned nb_lines = lines.size();
+    unsigned long nb_lines = lines.size();
     for (unsigned i = 0; i < nb_lines; ++i)
     {
         cv::line(disp_lines, cv::Point(lines[i][0], lines[i][1]),
