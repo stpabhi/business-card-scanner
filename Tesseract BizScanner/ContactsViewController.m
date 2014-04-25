@@ -70,7 +70,7 @@
             case 1:
             {
                 NSLog(@"%@",contactData[i]);
-                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+" options:NSRegularExpressionCaseInsensitive error:NULL];
+                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(]?\\d{3}[-.)]? *\\d{3}[-.]? *\\d{4}" options:0 error:NULL];
                 match = [regularExpression firstMatchInString:contactData[i] options:0 range:NSMakeRange(0, [contactData[i] length])];
                 NSString *phoneNumber = [contactData[i] substringWithRange:[match rangeAtIndex:0]];
                 ABMultiValueAddValueAndLabel(phoneNumberMultiValue, (__bridge CFTypeRef)(phoneNumber),kABWorkLabel,NULL);
@@ -79,7 +79,7 @@
             case 2:
             {
                 NSLog(@"%@",contactData[i]);
-                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+" options:NSRegularExpressionCaseInsensitive error:NULL];
+                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(]?\\d{3}[-.)]? *\\d{3}[-.]? *\\d{4}" options:0 error:NULL];
                 
                 match = [regularExpression firstMatchInString:contactData[i] options:0 range:NSMakeRange(0, [contactData[i] length])];
                 NSString *faxNumber = [contactData[i] substringWithRange:[match rangeAtIndex:0]];
@@ -90,7 +90,7 @@
             case 3:
             {
                 NSLog(@"%@",contactData[i]);
-                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]+_[a-zA-Z]+@[a-z]+.[a-z]{3}" options:NSRegularExpressionCaseInsensitive error:NULL];
+                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]?[._a-zA-Z]+@[a-z]+.[a-z]{3}" options:0 error:NULL];
                 
                 match = [regularExpression firstMatchInString:contactData[i] options:0 range:NSMakeRange(0, [contactData[i] length])];
                 NSString *email = [contactData[i] substringWithRange:[match rangeAtIndex:0]];
@@ -102,7 +102,7 @@
             case 4:
             {
                 NSLog(@"%@",contactData[i]);
-                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[([w]{3})+.[a-zA-Z]+.[a-z]{3}" options:NSRegularExpressionCaseInsensitive error:NULL];
+                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"([w|W]{3})+.[a-zA-Z0-9]+.[a-zA-Z0-9]+" options:0 error:NULL];
                 
                 match = [regularExpression firstMatchInString:contactData[i] options:0 range:NSMakeRange(0, [contactData[i] length])];
                 NSString *url = [contactData[i] substringWithRange:[match rangeAtIndex:0]];

@@ -296,14 +296,14 @@
         newPerson.newPersonViewDelegate = self;
         NSString *totalString = [self processOCR:chosenImage];
         NSLog(@"%@",totalString);
-        NSArray *regularExpressionCollectionValues = @[@"[A-Z]+ [A-Z]+",@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+",@"[a-zA-Z]+_[a-zA-Z]+@[a-z]+.[a-z]{3}",@"([w]{3})+.[a-zA-Z]+.[a-z]{3}"];
+        NSArray *regularExpressionCollectionValues = @[@"[A-Z]+ [A-Z]+",@"[(]?\\d{3}[-.)]? *\\d{3}[-.]? *\\d{4}",@"[a-zA-Z]?[._a-zA-Z]+@[a-z]+.[a-z]{3}",@"([w|W]{3})+.[a-zA-Z0-9]+.[a-zA-Z0-9]+"];
         //NSArray *regularExpressionCollectionKeys = @[@"phone",@"fax"];
         //NSMutableDictionary *contactDataRegEx = [NSMutableDictionary dictionaryWithObjects:regularExpressionCollectionValues forKeys:regularExpressionCollectionKeys];
         NSMutableArray *contactData =  [[NSMutableArray alloc]init];
         for(NSString *regexValue in regularExpressionCollectionValues)
         {
             NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionCaseInsensitive error:NULL];
-            if([regexValue isEqualToString:@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+"])
+            if([regexValue isEqualToString:@"[(]?\\d{3}[-.)]? *\\d{3}[-.]? *\\d{4}"])
             {
             NSArray *matches = [regularExpression matchesInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
             
@@ -315,8 +315,7 @@
             else
             {
                 NSTextCheckingResult *match = [regularExpression firstMatchInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
-                [contactData addObject:[totalString substringWithRange:[match rangeAtIndex:0]]];
-
+            [contactData addObject:[totalString substringWithRange:[match rangeAtIndex:0]]];
             }
         }
         ABRecordRef newRecord = [contact newContact:contactData];
