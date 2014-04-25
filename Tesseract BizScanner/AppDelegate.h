@@ -12,4 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property TesseractSettingsModel *settingsModel;
+@property NSUserDefaults *defaults;
+@property NSMutableArray *contactDataStorage;
+@property UICollectionView *collectionView;
+@property NSInteger delegateAssets;
 @end

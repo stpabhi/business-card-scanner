@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface Tesseract_BizScannerTests : XCTestCase
+@interface TesseractTests : XCTestCase
 
 @end
 
-@implementation Tesseract_BizScannerTests
+@implementation TesseractTests
 
 - (void)setUp
 {

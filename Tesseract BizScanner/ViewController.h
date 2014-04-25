@@ -23,5 +23,5 @@
 @property (strong, nonatomic) id <ImageProcessingProtocol> imageProcessor;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(nonatomic, strong) NSArray *assets;
-
+@property NSMutableArray *collectionViewCellTag;
 @end

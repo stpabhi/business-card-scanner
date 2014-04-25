@@ -70,7 +70,7 @@
             case 1:
             {
                 NSLog(@"%@",contactData[i]);
-                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(\\d)]+[ ]+[\\d-]+" options:NSRegularExpressionCaseInsensitive error:NULL];
+                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+" options:NSRegularExpressionCaseInsensitive error:NULL];
                 match = [regularExpression firstMatchInString:contactData[i] options:0 range:NSMakeRange(0, [contactData[i] length])];
                 NSString *phoneNumber = [contactData[i] substringWithRange:[match rangeAtIndex:0]];
                 ABMultiValueAddValueAndLabel(phoneNumberMultiValue, (__bridge CFTypeRef)(phoneNumber),kABWorkLabel,NULL);
@@ -79,7 +79,7 @@
             case 2:
             {
                 NSLog(@"%@",contactData[i]);
-                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(\\d)]+[ ]+[\\d-]+" options:NSRegularExpressionCaseInsensitive error:NULL];
+                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+" options:NSRegularExpressionCaseInsensitive error:NULL];
                 
                 match = [regularExpression firstMatchInString:contactData[i] options:0 range:NSMakeRange(0, [contactData[i] length])];
                 NSString *faxNumber = [contactData[i] substringWithRange:[match rangeAtIndex:0]];

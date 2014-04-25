@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "387701E518E3C3590035CE60"
                BuildableName = "Tesseract BizScanner.app"
-               BlueprintName = "Tesseract BizScanner"
-               ReferencedContainer = "container:Tesseract BizScanner.xcodeproj">
+               BlueprintName = "Tesseract"
+               ReferencedContainer = "container:Tesseract.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3877020618E3C3590035CE60"
                BuildableName = "Tesseract BizScannerTests.xctest"
-               BlueprintName = "Tesseract BizScannerTests"
-               ReferencedContainer = "container:Tesseract BizScanner.xcodeproj">
+               BlueprintName = "TesseractTests"
+               ReferencedContainer = "container:Tesseract.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387701E518E3C3590035CE60"
             BuildableName = "Tesseract BizScanner.app"
-            BlueprintName = "Tesseract BizScanner"
-            ReferencedContainer = "container:Tesseract BizScanner.xcodeproj">
+            BlueprintName = "Tesseract"
+            ReferencedContainer = "container:Tesseract.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387701E518E3C3590035CE60"
             BuildableName = "Tesseract BizScanner.app"
-            BlueprintName = "Tesseract BizScanner"
-            ReferencedContainer = "container:Tesseract BizScanner.xcodeproj">
+            BlueprintName = "Tesseract"
+            ReferencedContainer = "container:Tesseract.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387701E518E3C3590035CE60"
             BuildableName = "Tesseract BizScanner.app"
-            BlueprintName = "Tesseract BizScanner"
-            ReferencedContainer = "container:Tesseract BizScanner.xcodeproj">
+            BlueprintName = "Tesseract"
+            ReferencedContainer = "container:Tesseract.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

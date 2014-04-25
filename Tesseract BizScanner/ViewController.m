@@ -12,6 +12,7 @@
 #import "CustomImagePickerController.h"
 #import "CustomCameraView.h"
 #import "PhotoCell.h"
+#import "AppDelegate.h"
 //transform values for full screen support
 #define CAMERA_TRANSFORM_X 1
 #define CAMERA_TRANSFORM_Y 1.12412
@@ -21,11 +22,18 @@
 
 @interface ViewController ()
 @property CustomImagePickerController *customVC;
-@property NSString *collectionViewCellTag;
+@property NSInteger assetCount;
 @end
 
 @implementation ViewController
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.contactDataStorage = self.collectionViewCellTag;
+    delegate.collectionView = self.collectionView;
+    delegate.delegateAssets = self.assetCount;
+}
 - (void)viewWillAppear:(BOOL)animated
 {
 //    self.navigationItem.leftBarButtonItem.title = @"\u2699";
@@ -62,8 +70,15 @@
     } failureBlock:^(NSError *error) {
         NSLog(@"Error loading images %@", error);
     }];
+    [self viewAppeared];
+}
 
-    
+- (void)viewAppeared
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:self.collectionViewCellTag forKey:@"contactDataStorage"];
+            [defaults setInteger:self.assetCount forKey:@"assetCount"];
+            [defaults synchronize];
 }
 + (ALAssetsLibrary *)defaultAssetsLibrary
 {
@@ -79,13 +94,20 @@
     [super viewDidLoad];
     self.customVC = [[CustomImagePickerController alloc]init];
     //self.imageProcessor = [[ImageProcessingImplementation alloc]init];
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults objectForKey:@"contactDataStorage"] != nil)
+    {
+        self.collectionViewCellTag = [defaults objectForKey:@"contactDataStorage"];
+        NSLog(@"Loaded data %@",self.collectionViewCellTag);
+    }
+    else
+    self.collectionViewCellTag = [[NSMutableArray alloc]init];
 }
-
 #pragma mark - collection view data source
 
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    
     return self.assets.count;
 }
 
@@ -96,7 +118,8 @@
     ALAsset *asset = self.assets[indexPath.row];
     cell.asset = asset;
     cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
-
+//    self.assetCount = self.assets.count;
+    [self viewAppeared];
     return cell;
 }
 
@@ -120,8 +143,8 @@
     // Do something with the image
      PhotoCell *cell = (PhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
     cell.textLabel.hidden = YES;
-    cell.textLabel.text = self.collectionViewCellTag;
-    
+    cell.textLabel.text = [self.collectionViewCellTag objectAtIndex:indexPath.row];
+    NSLog(@"cell phone number %@",[self.collectionViewCellTag objectAtIndex:indexPath.row]);
     
     ABPersonViewController *picker = [[ABPersonViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:picker];
@@ -167,6 +190,7 @@
         //self.showsCameraControls = NO;
         //customVC.navigationBarHidden = YES;
         //customVC.toolbarHidden = YES;
+        self.customVC.allowsEditing = YES;
         
         //self.wantsFullScreenLayout = YES;
 //        customVC.cameraViewTransform =
@@ -252,15 +276,12 @@
     self.customVC.activityIndicator.color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0];
     [self.customVC.activityIndicator startAnimating];
     [self.customVC.view addSubview:self.customVC.activityIndicator];
-    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     //chosenImage = [self resizeImage:chosenImage];
 //    CGRect cropRect = CGRectMake(50,100, 220, 380);
 //    
 //    CGImageRef imageRef = CGImageCreateWithImageInRect([chosenImage CGImage], cropRect);
 //    chosenImage = [UIImage imageWithCGImage:imageRef];
-    
-    
-     
     
          _library = [[ALAssetsLibrary alloc]init];
          [self.library saveImage:chosenImage toAlbum:@"Tesseract" withCompletionBlock:^(NSError *error) {
@@ -275,19 +296,29 @@
         newPerson.newPersonViewDelegate = self;
         NSString *totalString = [self processOCR:chosenImage];
         NSLog(@"%@",totalString);
-        NSArray *regularExpressionCollectionValues = @[@"[A-Z]+ [A-Z]+",@"[P|p][h|H][o|O][n|N][e|E][ ]*[(\\d)]+[ ]+[\\d-]+",@"[F|f][a|A][x|X][ ]*[(\\d)]+[ ]+[\\d-]+",@"[a-zA-Z]+_[a-zA-Z]+@[a-z]+.[a-z]{3}",@"([w]{3})+.[a-zA-Z]+.[a-z]{3}"];
+        NSArray *regularExpressionCollectionValues = @[@"[A-Z]+ [A-Z]+",@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+",@"[a-zA-Z]+_[a-zA-Z]+@[a-z]+.[a-z]{3}",@"([w]{3})+.[a-zA-Z]+.[a-z]{3}"];
         //NSArray *regularExpressionCollectionKeys = @[@"phone",@"fax"];
         //NSMutableDictionary *contactDataRegEx = [NSMutableDictionary dictionaryWithObjects:regularExpressionCollectionValues forKeys:regularExpressionCollectionKeys];
         NSMutableArray *contactData =  [[NSMutableArray alloc]init];
         for(NSString *regexValue in regularExpressionCollectionValues)
         {
-            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionAllowCommentsAndWhitespace error:NULL];
+            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionCaseInsensitive error:NULL];
+            if([regexValue isEqualToString:@"[(]?\\d+[-.)]? *\\d+[-.]?\\d+"])
+            {
+            NSArray *matches = [regularExpression matchesInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
             
-            NSTextCheckingResult *match = [regularExpression firstMatchInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
-            // [match rangeAtIndex:1] gives the range of the group in parentheses
-            [contactData addObject:[totalString substringWithRange:[match rangeAtIndex:0]]];// gives the first captured group in this example
-        }
+            for(NSTextCheckingResult *match in matches)
+            {
+                [contactData addObject:[totalString substringWithRange:[match rangeAtIndex:0]]];
+            }
+            }
+            else
+            {
+                NSTextCheckingResult *match = [regularExpression firstMatchInString:totalString options:0 range:NSMakeRange(0, [totalString length])];
+                [contactData addObject:[totalString substringWithRange:[match rangeAtIndex:0]]];
 
+            }
+        }
         ABRecordRef newRecord = [contact newContact:contactData];
         [newPerson setDisplayedPerson:newRecord];
         CFRelease(newRecord);
@@ -314,7 +345,6 @@
     return [tesseract recognizedText];
     
     tesseract = nil; //deallocate and free all memory
-    return [tesseract recognizedText];
 
 }
 
@@ -349,6 +379,7 @@
     
     return nil;
 }
+
 -(void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person
 {
     if (person) {
@@ -358,7 +389,9 @@
         ABAddressBookSave(addressBook, nil);
         ABMultiValueRef numbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
         NSString *targetNumber = (__bridge NSString *) ABMultiValueCopyValueAtIndex(numbers, 0);
-        self.collectionViewCellTag = targetNumber;
+        [self.collectionViewCellTag addObject:targetNumber];
+        NSLog(@"added %@",[self.collectionViewCellTag lastObject]);
+        [self viewAppeared];
         CFRelease(addressBook);
     }
     [self.navigationController popViewControllerAnimated:YES];

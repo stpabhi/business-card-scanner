@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lep-Ha-J8H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lep-Ha-J8H">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y3R-nB-JHe">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y3R-nB-JHe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="539"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Sdt-57-bXe">
@@ -33,11 +33,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNO-vn-SCI">
+                                                <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xNO-vn-SCI">
                                                     <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-Uw-YIS">
+                                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-Uw-YIS">
                                                     <rect key="frame" x="20" y="68" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -47,6 +47,15 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="xNO-vn-SCI" secondAttribute="bottom" id="DVO-fy-Opd"/>
+                                            <constraint firstItem="fgQ-Uw-YIS" firstAttribute="top" secondItem="Hfd-PO-20x" secondAttribute="top" constant="68" id="IIX-y6-9yw"/>
+                                            <constraint firstItem="xNO-vn-SCI" firstAttribute="top" secondItem="Hfd-PO-20x" secondAttribute="top" id="KVL-CD-uAf"/>
+                                            <constraint firstAttribute="bottom" secondItem="fgQ-Uw-YIS" secondAttribute="bottom" constant="15" id="RKO-bG-IhA"/>
+                                            <constraint firstItem="fgQ-Uw-YIS" firstAttribute="leading" secondItem="Hfd-PO-20x" secondAttribute="leading" constant="20" id="UE5-xx-2vs"/>
+                                            <constraint firstItem="xNO-vn-SCI" firstAttribute="leading" secondItem="Hfd-PO-20x" secondAttribute="leading" id="WXs-8w-uNb"/>
+                                            <constraint firstAttribute="trailing" secondItem="xNO-vn-SCI" secondAttribute="trailing" id="cce-Hz-vM2"/>
+                                        </constraints>
                                         <size key="customSize" width="104" height="104"/>
                                         <connections>
                                             <outlet property="photoImageView" destination="xNO-vn-SCI" id="I3n-Df-95f"/>
@@ -61,6 +70,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="y3R-nB-JHe" secondAttribute="bottom" constant="-59" id="C1U-IU-eVU"/>
+                            <constraint firstItem="y3R-nB-JHe" firstAttribute="leading" secondItem="2qT-37-4mh" secondAttribute="leading" id="Lr2-31-n1g"/>
+                            <constraint firstAttribute="trailing" secondItem="y3R-nB-JHe" secondAttribute="trailing" id="Rie-WE-QxQ"/>
+                            <constraint firstItem="y3R-nB-JHe" firstAttribute="top" secondItem="2qT-37-4mh" secondAttribute="top" id="YgX-3U-2wL"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="camera" id="Vtz-2f-IPD">
