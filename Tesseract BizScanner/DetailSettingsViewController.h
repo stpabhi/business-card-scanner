@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailSettingsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextView *detailSettingsText;
+@interface DetailSettingsViewController : UIViewController <UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIWebView *detailSettingsText;
 
 @end

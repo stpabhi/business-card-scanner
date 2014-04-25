@@ -92,6 +92,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.starterText.text = @"Tap to Scan";
     self.customVC = [[CustomImagePickerController alloc]init];
     //self.imageProcessor = [[ImageProcessingImplementation alloc]init];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -168,14 +169,14 @@
 
 
 - (IBAction)accessPhotos:(id)sender {
-    CustomImagePickerController *imgPicker = [[CustomImagePickerController alloc]init];
-    imgPicker.delegate = self;
-    imgPicker.allowsEditing = YES;
+    self.customVC = [[CustomImagePickerController alloc]init];
+    self.customVC.delegate = self;
+    self.customVC.allowsEditing = YES;
     
     if([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
-        imgPicker.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
-        [self presentViewController:imgPicker animated:YES completion:nil];
+        self.customVC.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        [self presentViewController:self.customVC animated:YES completion:nil];
     }
 
 }
@@ -296,13 +297,13 @@
         newPerson.newPersonViewDelegate = self;
         NSString *totalString = [self processOCR:chosenImage];
         NSLog(@"%@",totalString);
-        NSArray *regularExpressionCollectionValues = @[@"[A-Z]+ [A-Z]+",@"[(]?\\d{3}[-.)]? *\\d{3}[-.]? *\\d{4}",@"[a-zA-Z]?[._a-zA-Z]+@[a-z]+.[a-z]{3}",@"([w|W]{3})+.[a-zA-Z0-9]+.[a-zA-Z0-9]+"];
+        NSArray *regularExpressionCollectionValues = @[@"[A-Z]+ [A-Z]+",@"[(]?\\d{3}[-.)]? *\\d{3}[-.]? *\\d{4}",@"[a-zA-Z0-9]?[._a-zA-Z0-9]+@[a-z0-9]+.[a-z0-9]{3}",@"([w|W]{3})+.[a-zA-Z0-9]+.[a-zA-Z0-9]+"];
         //NSArray *regularExpressionCollectionKeys = @[@"phone",@"fax"];
         //NSMutableDictionary *contactDataRegEx = [NSMutableDictionary dictionaryWithObjects:regularExpressionCollectionValues forKeys:regularExpressionCollectionKeys];
         NSMutableArray *contactData =  [[NSMutableArray alloc]init];
         for(NSString *regexValue in regularExpressionCollectionValues)
         {
-            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:NSRegularExpressionCaseInsensitive error:NULL];
+            NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:regexValue options:0 error:NULL];
             if([regexValue isEqualToString:@"[(]?\\d{3}[-.)]? *\\d{3}[-.]? *\\d{4}"])
             {
             NSArray *matches = [regularExpression matchesInString:totalString options:0 range:NSMakeRange(0, [totalString length])];

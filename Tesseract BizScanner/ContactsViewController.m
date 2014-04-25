@@ -90,7 +90,7 @@
             case 3:
             {
                 NSLog(@"%@",contactData[i]);
-                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]?[._a-zA-Z]+@[a-z]+.[a-z]{3}" options:0 error:NULL];
+                regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z0-9]?[._a-zA-Z0-9]+@[a-z0-9]+.[a-z0-9]{3}" options:0 error:NULL];
                 
                 match = [regularExpression firstMatchInString:contactData[i] options:0 range:NSMakeRange(0, [contactData[i] length])];
                 NSString *email = [contactData[i] substringWithRange:[match rangeAtIndex:0]];

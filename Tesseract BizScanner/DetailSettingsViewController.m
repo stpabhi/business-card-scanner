@@ -25,18 +25,25 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"license" ofType:@"txt"];
-    NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    self.detailSettingsText.text = content;
-    self.detailSettingsText.editable = NO;
-    self.detailSettingsText.selectable = NO;
-    
+    NSString *path;
+    if([self.navigationItem.title isEqualToString:@"About"])
+    {
+        path = [[NSBundle mainBundle] pathForResource:@"license" ofType:@"rtf"];
+    }
+    else if([self.navigationItem.title isEqualToString:@"FAQ"])
+    {
+        path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:@"faq.rtf"];
+    }
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:path];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:fileURL];
+    [self.detailSettingsText loadRequest:requestObj];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.detailSettingsText.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning

@@ -78,7 +78,7 @@
 - (void)showEmail
 {
     // Email Subject
-    NSString *emailTitle = @"Tesseract BizScanner Feedback";
+    NSString *emailTitle = @"Tesseract Feedback";
     // Email Content
     NSString *messageBody = @"Feedback here:";
     // To address

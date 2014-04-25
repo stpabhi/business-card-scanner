@@ -138,7 +138,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Jz0-uQ-o68" kind="push" id="FXQ-2y-DqZ"/>
+                                            <segue destination="YcS-z7-QBd" kind="push" id="I2k-Yx-QUr"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gd7-5u-inx">
@@ -170,38 +170,6 @@
             </objects>
             <point key="canvasLocation" x="-4951" y="777"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="QS6-eG-ike">
-            <objects>
-                <tableViewController storyboardIdentifier="FAQViewController" id="Jz0-uQ-o68" customClass="FAQTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Kqd-wW-lhG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="V6A-oX-sEP">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6A-oX-sEP" id="dpO-qm-GZF">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="YcS-z7-QBd" kind="push" id="fLO-oF-Ug6"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Jz0-uQ-o68" id="tlK-jx-Ye6"/>
-                            <outlet property="delegate" destination="Jz0-uQ-o68" id="7YR-ol-WQw"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Wcp-6B-i45"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dov-bF-e6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4592" y="777"/>
-        </scene>
         <!--Detail Settings View Controller-->
         <scene sceneID="iSN-jn-MI0">
             <objects>
@@ -214,25 +182,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l35-hj-n0E">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQT-83-R4c">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <connections>
+                                    <outlet property="delegate" destination="YcS-z7-QBd" id="p87-eF-626"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DQT-83-R4c" firstAttribute="top" secondItem="zsN-qg-tfD" secondAttribute="top" id="B9H-5H-hld"/>
+                            <constraint firstItem="DQT-83-R4c" firstAttribute="leading" secondItem="zsN-qg-tfD" secondAttribute="leading" id="Xit-fk-QsK"/>
+                            <constraint firstAttribute="trailing" secondItem="DQT-83-R4c" secondAttribute="trailing" id="rQV-ba-vxg"/>
+                            <constraint firstAttribute="bottom" secondItem="DQT-83-R4c" secondAttribute="bottom" id="uzr-0n-C9q"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Scg-cz-dMW"/>
                     <connections>
-                        <outlet property="detailSettingsText" destination="l35-hj-n0E" id="jMP-7m-FqR"/>
+                        <outlet property="detailSettingsText" destination="DQT-83-R4c" id="ix0-qq-ycx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qic-Zw-tra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4228" y="777"/>
+            <point key="canvasLocation" x="-4552" y="777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Vn-xI-mxf">
@@ -306,6 +280,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fLO-oF-Ug6"/>
+        <segue reference="I2k-Yx-QUr"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,7 +1,0 @@
-Business Card Scanner
-
-Copyright © 2014, Abhilash S T P, Gowtham Sureddi, Bhavana Reddy Anumula.
-All rights reserved.
-
-Trademarks notice
-Tesseract is released under Apache License, Version 2.0. All rights reserved.

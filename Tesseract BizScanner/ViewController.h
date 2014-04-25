@@ -24,4 +24,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(nonatomic, strong) NSArray *assets;
 @property NSMutableArray *collectionViewCellTag;
+@property (weak, nonatomic) IBOutlet UILabel *starterText;
+
 @end
