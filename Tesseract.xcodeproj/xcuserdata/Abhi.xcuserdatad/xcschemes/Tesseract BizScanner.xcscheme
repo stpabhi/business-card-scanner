@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "387701E518E3C3590035CE60"
-               BuildableName = "Tesseract BizScanner.app"
+               BuildableName = "Tesseract.app"
                BlueprintName = "Tesseract"
                ReferencedContainer = "container:Tesseract.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3877020618E3C3590035CE60"
-               BuildableName = "Tesseract BizScannerTests.xctest"
+               BuildableName = "TesseractTests.xctest"
                BlueprintName = "TesseractTests"
                ReferencedContainer = "container:Tesseract.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387701E518E3C3590035CE60"
-            BuildableName = "Tesseract BizScanner.app"
+            BuildableName = "Tesseract.app"
             BlueprintName = "Tesseract"
             ReferencedContainer = "container:Tesseract.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387701E518E3C3590035CE60"
-            BuildableName = "Tesseract BizScanner.app"
+            BuildableName = "Tesseract.app"
             BlueprintName = "Tesseract"
             ReferencedContainer = "container:Tesseract.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387701E518E3C3590035CE60"
-            BuildableName = "Tesseract BizScanner.app"
+            BuildableName = "Tesseract.app"
             BlueprintName = "Tesseract"
             ReferencedContainer = "container:Tesseract.xcodeproj">
          </BuildableReference>

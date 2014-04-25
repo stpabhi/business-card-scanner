@@ -70,6 +70,8 @@
     } failureBlock:^(NSError *error) {
         NSLog(@"Error loading images %@", error);
     }];
+    self.assetCount = self.assets.count;
+    NSLog(@"%d",self.collectionViewCellTag.count);
     [self viewAppeared];
 }
 
@@ -96,13 +98,14 @@
     self.customVC = [[CustomImagePickerController alloc]init];
     //self.imageProcessor = [[ImageProcessingImplementation alloc]init];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"asset count %d",self.assetCount);
     if([defaults objectForKey:@"contactDataStorage"] != nil)
     {
         self.collectionViewCellTag = [defaults objectForKey:@"contactDataStorage"];
         NSLog(@"Loaded data %@",self.collectionViewCellTag);
     }
-    else
-    self.collectionViewCellTag = [[NSMutableArray alloc]init];
+//    else
+//    self.collectionViewCellTag = [[NSMutableArray alloc]init];
 }
 #pragma mark - collection view data source
 
@@ -389,6 +392,15 @@
         ABAddressBookSave(addressBook, nil);
         ABMultiValueRef numbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
         NSString *targetNumber = (__bridge NSString *) ABMultiValueCopyValueAtIndex(numbers, 0);
+        if(self.collectionViewCellTag.count == 0)
+        {
+            self.collectionViewCellTag = [[NSMutableArray alloc]init];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:self.collectionViewCellTag forKey:@"contactDataStorage"];
+            [defaults setInteger:self.assetCount forKey:@"assetCount"];
+            [defaults synchronize];
+            
+        }
         [self.collectionViewCellTag addObject:targetNumber];
         NSLog(@"added %@",[self.collectionViewCellTag lastObject]);
         [self viewAppeared];
