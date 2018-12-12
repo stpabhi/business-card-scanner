@@ -632,7 +632,7 @@
 				ORGANIZATIONNAME = "Abhilash S T P";
 				TargetAttributes = {
 					387701E518E3C3590035CE60 = {
-						DevelopmentTeam = 583N2DJ8B2;
+						DevelopmentTeam = 4QD4LN7PUZ;
 					};
 					3877020618E3C3590035CE60 = {
 						TestTargetID = 387701E518E3C3590035CE60;
@@ -835,6 +835,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4QD4LN7PUZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -850,15 +851,16 @@
 					$SOURCE_ROOT/include,
 				);
 				INFOPLIST_FILE = "Tesseract BizScanner/Tesseract-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Abhi/Downloads/iPhone-OCR-Tesseract-and-OpenCV-master/Pods/Tesseract/lib",
 				);
 				OTHER_LDFLAGS = "-lstdc++";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.stpabhi;
 				PRODUCT_NAME = Tesseract;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -873,6 +875,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4QD4LN7PUZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -888,15 +891,16 @@
 					$SOURCE_ROOT/include,
 				);
 				INFOPLIST_FILE = "Tesseract BizScanner/Tesseract-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Abhi/Downloads/iPhone-OCR-Tesseract-and-OpenCV-master/Pods/Tesseract/lib",
 				);
 				OTHER_LDFLAGS = "-lstdc++";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.stpabhi;
 				PRODUCT_NAME = Tesseract;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
