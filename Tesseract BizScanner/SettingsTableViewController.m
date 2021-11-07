@@ -82,7 +82,7 @@
     // Email Content
     NSString *messageBody = @"Feedback here:";
     // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"stp_abhi@me.com"];
+    NSArray *toRecipents = [NSArray arrayWithObject:@"stp_abhi@mac.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;

@@ -6,57 +6,6 @@
 	objectVersion = 54;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		3817401318EF68FE003CC0C6 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401218EF68FE003CC0C6 /* SettingsTableViewController.m */; };
-		3817401618EF6B11003CC0C6 /* TesseractSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401518EF6B11003CC0C6 /* TesseractSettingsModel.m */; };
-		3817401A18EF7613003CC0C6 /* DetailSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401918EF7613003CC0C6 /* DetailSettingsViewController.m */; };
-		3817401D18EF8540003CC0C6 /* FAQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401C18EF8540003CC0C6 /* FAQTableViewController.m */; };
-		3817402118EF8C73003CC0C6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3817402018EF8C73003CC0C6 /* MessageUI.framework */; };
-		3825DFF818FF75EC001BF7A1 /* CustomCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3825DFF718FF75EC001BF7A1 /* CustomCameraView.m */; };
-		38361DFE18EA307800E41D33 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38361DFD18EA307800E41D33 /* CameraViewController.m */; };
-		383DE2F318F366D4000A7E32 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DE2F218F366D4000A7E32 /* ContactsViewController.m */; };
-		384701B018F1030E00714CC3 /* GeneralContours.mm in Sources */ = {isa = PBXBuildFile; fileRef = 384701AF18F1030E00714CC3 /* GeneralContours.mm */; };
-		386299A1190657280080F6D2 /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386299A0190657280080F6D2 /* CustomImagePickerController.m */; };
-		38632DAB1901AC7200940430 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 38632DAA1901AC7200940430 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
-		38632DAD1901AE9800940430 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38632DAC1901AE9800940430 /* AssetsLibrary.framework */; };
-		38632DB01901BBD400940430 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38632DAF1901BBD400940430 /* PhotoCell.m */; };
-		387701EA18E3C3590035CE60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701E918E3C3590035CE60 /* Foundation.framework */; };
-		387701EC18E3C3590035CE60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701EB18E3C3590035CE60 /* CoreGraphics.framework */; };
-		387701EE18E3C3590035CE60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701ED18E3C3590035CE60 /* UIKit.framework */; };
-		387701F418E3C3590035CE60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 387701F218E3C3590035CE60 /* InfoPlist.strings */; };
-		387701F618E3C3590035CE60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 387701F518E3C3590035CE60 /* main.m */; };
-		387701FA18E3C3590035CE60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 387701F918E3C3590035CE60 /* AppDelegate.m */; };
-		387701FD18E3C3590035CE60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387701FB18E3C3590035CE60 /* Main.storyboard */; };
-		3877020018E3C3590035CE60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387701FF18E3C3590035CE60 /* ViewController.m */; };
-		3877020218E3C3590035CE60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3877020118E3C3590035CE60 /* Images.xcassets */; };
-		3877020A18E3C3590035CE60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701E918E3C3590035CE60 /* Foundation.framework */; };
-		3877020B18E3C3590035CE60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701ED18E3C3590035CE60 /* UIKit.framework */; };
-		3877021318E3C3590035CE60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3877021118E3C3590035CE60 /* InfoPlist.strings */; };
-		3877021518E3C3590035CE60 /* TesseractTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3877021418E3C3590035CE60 /* TesseractTests.m */; };
-		3877023718E3C68C0035CE60 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3877023618E3C68C0035CE60 /* tessdata */; };
-		38795B9418EFB2B0009835E2 /* ImageProcessingImplementation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38795B9318EFB2B0009835E2 /* ImageProcessingImplementation.mm */; };
-		38795B9A18EFB448009835E2 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38795B9918EFB448009835E2 /* UIImage+OpenCV.mm */; };
-		38795B9C18EFB696009835E2 /* ImageProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38795B9B18EFB696009835E2 /* ImageProcessor.cpp */; };
-		38839CF818E3D474000FF0C6 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 38839CF718E3D474000FF0C6 /* gallery.png */; };
-		38839CFA18E3D57D000FF0C6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 38839CF918E3D57D000FF0C6 /* settings.png */; };
-		38B3BEE418EFC8F4000C7D4D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B3BEE318EFC8F4000C7D4D /* opencv2.framework */; };
-		38B93AB61901DEC900DCFED7 /* grey man cropped.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B93AB51901DEC900DCFED7 /* grey man cropped.png */; };
-		38EE6667190A669700CB5FC3 /* faq.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 38EE6666190A669700CB5FC3 /* faq.rtf */; };
-		38EE6669190A6A1D00CB5FC3 /* license.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 38EE6668190A6A1D00CB5FC3 /* license.rtf */; };
-		38F3E1F518EFE69B005760F6 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F3E1F418EFE69B005760F6 /* TesseractOCR.framework */; };
-		9E4CFE3F25A29E7800B26461 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E4CFE3625A29E1300B26461 /* libstdc++.6.0.9.tbd */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3877020C18E3C3590035CE60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 387701DE18E3C3590035CE60 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 387701E518E3C3590035CE60;
-			remoteInfo = "Tesseract BizScanner";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		3817401118EF68FE003CC0C6 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		3817401218EF68FE003CC0C6 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
@@ -82,7 +31,6 @@
 		38632DAC1901AE9800940430 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		38632DAE1901BBD400940430 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		38632DAF1901BBD400940430 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
-		387701E618E3C3590035CE60 /* Tesseract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tesseract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387701E918E3C3590035CE60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		387701EB18E3C3590035CE60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		387701ED18E3C3590035CE60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -96,10 +44,6 @@
 		387701FE18E3C3590035CE60 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		387701FF18E3C3590035CE60 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3877020118E3C3590035CE60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3877020718E3C3590035CE60 /* TesseractTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TesseractTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3877021018E3C3590035CE60 /* TesseractTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TesseractTests-Info.plist"; sourceTree = "<group>"; };
-		3877021218E3C3590035CE60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3877021418E3C3590035CE60 /* TesseractTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TesseractTests.m; sourceTree = "<group>"; };
 		3877023618E3C68C0035CE60 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		38795B9118EFB19E009835E2 /* ImageProcessingProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageProcessingProtocol.h; sourceTree = "<group>"; };
 		38795B9218EFB2B0009835E2 /* ImageProcessingImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageProcessingImplementation.h; sourceTree = "<group>"; };
@@ -261,33 +205,6 @@
 		9E4CFE3625A29E1300B26461 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.6.0.9.tbd"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		387701E318E3C3590035CE60 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38632DAD1901AE9800940430 /* AssetsLibrary.framework in Frameworks */,
-				38F3E1F518EFE69B005760F6 /* TesseractOCR.framework in Frameworks */,
-				38B3BEE418EFC8F4000C7D4D /* opencv2.framework in Frameworks */,
-				3817402118EF8C73003CC0C6 /* MessageUI.framework in Frameworks */,
-				387701EC18E3C3590035CE60 /* CoreGraphics.framework in Frameworks */,
-				387701EE18E3C3590035CE60 /* UIKit.framework in Frameworks */,
-				387701EA18E3C3590035CE60 /* Foundation.framework in Frameworks */,
-				9E4CFE3F25A29E7800B26461 /* libstdc++.6.0.9.tbd in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3877020418E3C3590035CE60 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3877020B18E3C3590035CE60 /* UIKit.framework in Frameworks */,
-				3877020A18E3C3590035CE60 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
 		3817401718EF6B16003CC0C6 /* Model */ = {
 			isa = PBXGroup;
@@ -302,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				387701EF18E3C3590035CE60 /* Tesseract */,
-				3877020E18E3C3590035CE60 /* TesseractTests */,
 				387701E818E3C3590035CE60 /* Frameworks */,
 				387701E718E3C3590035CE60 /* Products */,
 			);
@@ -311,8 +227,6 @@
 		387701E718E3C3590035CE60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				387701E618E3C3590035CE60 /* Tesseract.app */,
-				3877020718E3C3590035CE60 /* TesseractTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -389,25 +303,6 @@
 				387701F218E3C3590035CE60 /* InfoPlist.strings */,
 				387701F518E3C3590035CE60 /* main.m */,
 				387701F718E3C3590035CE60 /* Tesseract-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3877020E18E3C3590035CE60 /* TesseractTests */ = {
-			isa = PBXGroup;
-			children = (
-				3877021418E3C3590035CE60 /* TesseractTests.m */,
-				3877020F18E3C3590035CE60 /* Supporting Files */,
-			);
-			name = TesseractTests;
-			path = "Tesseract BizScannerTests";
-			sourceTree = "<group>";
-		};
-		3877020F18E3C3590035CE60 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3877021018E3C3590035CE60 /* TesseractTests-Info.plist */,
-				3877021118E3C3590035CE60 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -580,65 +475,18 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		387701E518E3C3590035CE60 /* Tesseract */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3877021818E3C3590035CE60 /* Build configuration list for PBXNativeTarget "Tesseract" */;
-			buildPhases = (
-				387701E218E3C3590035CE60 /* Sources */,
-				387701E318E3C3590035CE60 /* Frameworks */,
-				387701E418E3C3590035CE60 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Tesseract;
-			productName = "Tesseract BizScanner";
-			productReference = 387701E618E3C3590035CE60 /* Tesseract.app */;
-			productType = "com.apple.product-type.application";
-		};
-		3877020618E3C3590035CE60 /* TesseractTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3877021B18E3C3590035CE60 /* Build configuration list for PBXNativeTarget "TesseractTests" */;
-			buildPhases = (
-				3877020318E3C3590035CE60 /* Sources */,
-				3877020418E3C3590035CE60 /* Frameworks */,
-				3877020518E3C3590035CE60 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3877020D18E3C3590035CE60 /* PBXTargetDependency */,
-			);
-			name = TesseractTests;
-			productName = "Tesseract BizScannerTests";
-			productReference = 3877020718E3C3590035CE60 /* TesseractTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
 /* Begin PBXProject section */
 		387701DE18E3C3590035CE60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "Abhilash S T P";
-				TargetAttributes = {
-					387701E518E3C3590035CE60 = {
-						DevelopmentTeam = 4QD4LN7PUZ;
-					};
-					3877020618E3C3590035CE60 = {
-						TestTargetID = 387701E518E3C3590035CE60;
-					};
-				};
 			};
 			buildConfigurationList = 387701E118E3C3590035CE60 /* Build configuration list for PBXProject "Tesseract" */;
 			compatibilityVersion = "Xcode 12.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -647,81 +495,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				387701E518E3C3590035CE60 /* Tesseract */,
-				3877020618E3C3590035CE60 /* TesseractTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		387701E418E3C3590035CE60 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3877020218E3C3590035CE60 /* Images.xcassets in Resources */,
-				387701F418E3C3590035CE60 /* InfoPlist.strings in Resources */,
-				38EE6667190A669700CB5FC3 /* faq.rtf in Resources */,
-				38EE6669190A6A1D00CB5FC3 /* license.rtf in Resources */,
-				3877023718E3C68C0035CE60 /* tessdata in Resources */,
-				387701FD18E3C3590035CE60 /* Main.storyboard in Resources */,
-				38839CFA18E3D57D000FF0C6 /* settings.png in Resources */,
-				38B93AB61901DEC900DCFED7 /* grey man cropped.png in Resources */,
-				38839CF818E3D474000FF0C6 /* gallery.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3877020518E3C3590035CE60 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3877021318E3C3590035CE60 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		387701E218E3C3590035CE60 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38632DB01901BBD400940430 /* PhotoCell.m in Sources */,
-				38795B9418EFB2B0009835E2 /* ImageProcessingImplementation.mm in Sources */,
-				3877020018E3C3590035CE60 /* ViewController.m in Sources */,
-				38361DFE18EA307800E41D33 /* CameraViewController.m in Sources */,
-				383DE2F318F366D4000A7E32 /* ContactsViewController.m in Sources */,
-				3817401D18EF8540003CC0C6 /* FAQTableViewController.m in Sources */,
-				386299A1190657280080F6D2 /* CustomImagePickerController.m in Sources */,
-				3817401318EF68FE003CC0C6 /* SettingsTableViewController.m in Sources */,
-				38632DAB1901AC7200940430 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
-				387701FA18E3C3590035CE60 /* AppDelegate.m in Sources */,
-				384701B018F1030E00714CC3 /* GeneralContours.mm in Sources */,
-				38795B9C18EFB696009835E2 /* ImageProcessor.cpp in Sources */,
-				387701F618E3C3590035CE60 /* main.m in Sources */,
-				3817401A18EF7613003CC0C6 /* DetailSettingsViewController.m in Sources */,
-				3825DFF818FF75EC001BF7A1 /* CustomCameraView.m in Sources */,
-				3817401618EF6B11003CC0C6 /* TesseractSettingsModel.m in Sources */,
-				38795B9A18EFB448009835E2 /* UIImage+OpenCV.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3877020318E3C3590035CE60 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3877021518E3C3590035CE60 /* TesseractTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3877020D18E3C3590035CE60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 387701E518E3C3590035CE60 /* Tesseract */;
-			targetProxy = 3877020C18E3C3590035CE60 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		387701F218E3C3590035CE60 /* InfoPlist.strings */ = {
@@ -740,14 +516,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3877021118E3C3590035CE60 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3877021218E3C3590035CE60 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -755,22 +523,38 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -783,7 +567,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -793,147 +577,46 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		3877021918E3C3590035CE60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4QD4LN7PUZ;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tesseract BizScanner/Tesseract-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					$SOURCE_ROOT/include,
-				);
-				INFOPLIST_FILE = "Tesseract BizScanner/Tesseract-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.stpabhi;
-				PRODUCT_NAME = Tesseract;
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "arm64 armv7 armv7s";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		3877021A18E3C3590035CE60 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4QD4LN7PUZ;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tesseract BizScanner/Tesseract-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					$SOURCE_ROOT/include,
-				);
-				INFOPLIST_FILE = "Tesseract BizScanner/Tesseract-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.stpabhi;
-				PRODUCT_NAME = Tesseract;
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "arm64 armv7 armv7s";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		3877021C18E3C3590035CE60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tesseract BizScanner.app/Tesseract BizScanner";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tesseract BizScanner/Tesseract BizScanner-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Tesseract BizScannerTests/TesseractTests-Info.plist";
-				PRODUCT_NAME = TesseractTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		3877021D18E3C3590035CE60 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tesseract BizScanner.app/Tesseract BizScanner";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tesseract BizScanner/Tesseract BizScanner-Prefix.pch";
-				INFOPLIST_FILE = "Tesseract BizScannerTests/TesseractTests-Info.plist";
-				PRODUCT_NAME = TesseractTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -945,24 +628,6 @@
 			buildConfigurations = (
 				3877021618E3C3590035CE60 /* Debug */,
 				3877021718E3C3590035CE60 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3877021818E3C3590035CE60 /* Build configuration list for PBXNativeTarget "Tesseract" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3877021918E3C3590035CE60 /* Debug */,
-				3877021A18E3C3590035CE60 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3877021B18E3C3590035CE60 /* Build configuration list for PBXNativeTarget "TesseractTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3877021C18E3C3590035CE60 /* Debug */,
-				3877021D18E3C3590035CE60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
