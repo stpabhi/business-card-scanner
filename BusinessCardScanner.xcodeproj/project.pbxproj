@@ -6,6 +6,43 @@
 	objectVersion = 54;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9EB6AB572738D9EA00F870D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EB6AB562738D9EA00F870D7 /* Assets.xcassets */; };
+		9EB6AB622738DEF200F870D7 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E4CFE3625A29E1300B26461 /* libstdc++.6.0.9.tbd */; };
+		9EB6AB632738E0EA00F870D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 387701F918E3C3590035CE60 /* AppDelegate.m */; };
+		9EB6AB642738E0FD00F870D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 387701F518E3C3590035CE60 /* main.m */; };
+		9EB6AB652738E14400F870D7 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F3E1F418EFE69B005760F6 /* TesseractOCR.framework */; };
+		9EB6AB682738E15300F870D7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B3BEE318EFC8F4000C7D4D /* opencv2.framework */; };
+		9EB6AB6B2738E3BC00F870D7 /* TesseractSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401518EF6B11003CC0C6 /* TesseractSettingsModel.m */; };
+		9EB6AB6C2738E51C00F870D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387701FB18E3C3590035CE60 /* Main.storyboard */; };
+		9EB6AB6D2738E59C00F870D7 /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386299A0190657280080F6D2 /* CustomImagePickerController.m */; };
+		9EB6AB6E2738E5A000F870D7 /* ImageProcessingImplementation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38795B9318EFB2B0009835E2 /* ImageProcessingImplementation.mm */; };
+		9EB6AB6F2738E5A900F870D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387701FF18E3C3590035CE60 /* ViewController.m */; };
+		9EB6AB702738E5F100F870D7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38632DAC1901AE9800940430 /* AssetsLibrary.framework */; };
+		9EB6AB712738E5F800F870D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701EB18E3C3590035CE60 /* CoreGraphics.framework */; };
+		9EB6AB722738E5FE00F870D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701E918E3C3590035CE60 /* Foundation.framework */; };
+		9EB6AB732738E60400F870D7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3817402018EF8C73003CC0C6 /* MessageUI.framework */; };
+		9EB6AB742738E60D00F870D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387701ED18E3C3590035CE60 /* UIKit.framework */; };
+		9EB6AB752738E65600F870D7 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 38839CF718E3D474000FF0C6 /* gallery.png */; };
+		9EB6AB762738E65B00F870D7 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 38839CF918E3D57D000FF0C6 /* settings.png */; };
+		9EB6AB772738E66600F870D7 /* ImageProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38795B9B18EFB696009835E2 /* ImageProcessor.cpp */; };
+		9EB6AB782738E66B00F870D7 /* GeneralContours.mm in Sources */ = {isa = PBXBuildFile; fileRef = 384701AF18F1030E00714CC3 /* GeneralContours.mm */; };
+		9EB6AB792738E67000F870D7 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38795B9918EFB448009835E2 /* UIImage+OpenCV.mm */; };
+		9EB6AB7A2738E67B00F870D7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DE2F218F366D4000A7E32 /* ContactsViewController.m */; };
+		9EB6AB7B2738E68100F870D7 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 38632DAA1901AC7200940430 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		9EB6AB7C2738E68800F870D7 /* CustomCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3825DFF718FF75EC001BF7A1 /* CustomCameraView.m */; };
+		9EB6AB7D2738E69000F870D7 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38632DAF1901BBD400940430 /* PhotoCell.m */; };
+		9EB6AB7E2738E69500F870D7 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38361DFD18EA307800E41D33 /* CameraViewController.m */; };
+		9EB6AB7F2738E69900F870D7 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401218EF68FE003CC0C6 /* SettingsTableViewController.m */; };
+		9EB6AB802738E69D00F870D7 /* DetailSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401918EF7613003CC0C6 /* DetailSettingsViewController.m */; };
+		9EB6AB812738E6A200F870D7 /* FAQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817401C18EF8540003CC0C6 /* FAQTableViewController.m */; };
+		9EB6AB822738E6B000F870D7 /* faq.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 38EE6666190A669700CB5FC3 /* faq.rtf */; };
+		9EB6AB832738E6B400F870D7 /* license.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 38EE6668190A6A1D00CB5FC3 /* license.rtf */; };
+		9EB6AB842738E7CE00F870D7 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3877023618E3C68C0035CE60 /* tessdata */; };
+		9EB6AB852738E7E200F870D7 /* grey man cropped.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B93AB51901DEC900DCFED7 /* grey man cropped.png */; };
+		9EB6AB862738E7F700F870D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3877020118E3C3590035CE60 /* Images.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3817401118EF68FE003CC0C6 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		3817401218EF68FE003CC0C6 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
@@ -34,10 +71,9 @@
 		387701E918E3C3590035CE60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		387701EB18E3C3590035CE60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		387701ED18E3C3590035CE60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		387701F118E3C3590035CE60 /* Tesseract-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tesseract-Info.plist"; sourceTree = "<group>"; };
-		387701F318E3C3590035CE60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		387701F118E3C3590035CE60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		387701F518E3C3590035CE60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		387701F718E3C3590035CE60 /* Tesseract-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tesseract-Prefix.pch"; sourceTree = "<group>"; };
+		387701F718E3C3590035CE60 /* BusinessCardScanner-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusinessCardScanner-Prefix.pch"; sourceTree = "<group>"; };
 		387701F818E3C3590035CE60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		387701F918E3C3590035CE60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		387701FC18E3C3590035CE60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,7 +239,27 @@
 		38F3E1F318EFE5A4005760F6 /* werdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = werdit.h; sourceTree = "<group>"; };
 		38F3E1F418EFE69B005760F6 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		9E4CFE3625A29E1300B26461 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.6.0.9.tbd"; sourceTree = "<group>"; };
+		9EB6AB472738D9E900F870D7 /* BusinessCardScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessCardScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EB6AB562738D9EA00F870D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EB6AB442738D9E900F870D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EB6AB732738E60400F870D7 /* MessageUI.framework in Frameworks */,
+				9EB6AB742738E60D00F870D7 /* UIKit.framework in Frameworks */,
+				9EB6AB682738E15300F870D7 /* opencv2.framework in Frameworks */,
+				9EB6AB722738E5FE00F870D7 /* Foundation.framework in Frameworks */,
+				9EB6AB652738E14400F870D7 /* TesseractOCR.framework in Frameworks */,
+				9EB6AB622738DEF200F870D7 /* libstdc++.6.0.9.tbd in Frameworks */,
+				9EB6AB712738E5F800F870D7 /* CoreGraphics.framework in Frameworks */,
+				9EB6AB702738E5F100F870D7 /* AssetsLibrary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		3817401718EF6B16003CC0C6 /* Model */ = {
@@ -218,17 +274,10 @@
 		387701DD18E3C3590035CE60 = {
 			isa = PBXGroup;
 			children = (
-				387701EF18E3C3590035CE60 /* Business Card Scanner */,
+				387701EF18E3C3590035CE60 /* BusinessCardScanner */,
 				387701E818E3C3590035CE60 /* Frameworks */,
-				387701E718E3C3590035CE60 /* Products */,
+				9EB6AB482738D9E900F870D7 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		387701E718E3C3590035CE60 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		387701E818E3C3590035CE60 /* Frameworks */ = {
@@ -246,9 +295,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		387701EF18E3C3590035CE60 /* Business Card Scanner */ = {
+		387701EF18E3C3590035CE60 /* BusinessCardScanner */ = {
 			isa = PBXGroup;
 			children = (
+				387701F718E3C3590035CE60 /* BusinessCardScanner-Prefix.pch */,
+				387701F518E3C3590035CE60 /* main.m */,
+				387701F118E3C3590035CE60 /* Info.plist */,
+				9EB6AB562738D9EA00F870D7 /* Assets.xcassets */,
 				38B93AB51901DEC900DCFED7 /* grey man cropped.png */,
 				38F3E16218EFE5A4005760F6 /* include */,
 				3817401718EF6B16003CC0C6 /* Model */,
@@ -290,20 +343,8 @@
 				3817401B18EF8540003CC0C6 /* FAQTableViewController.h */,
 				3817401C18EF8540003CC0C6 /* FAQTableViewController.m */,
 				3877020118E3C3590035CE60 /* Images.xcassets */,
-				387701F018E3C3590035CE60 /* Supporting Files */,
 			);
-			path = "Business Card Scanner";
-			sourceTree = "<group>";
-		};
-		387701F018E3C3590035CE60 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				387701F118E3C3590035CE60 /* Tesseract-Info.plist */,
-				387701F218E3C3590035CE60 /* InfoPlist.strings */,
-				387701F518E3C3590035CE60 /* main.m */,
-				387701F718E3C3590035CE60 /* Tesseract-Prefix.pch */,
-			);
-			name = "Supporting Files";
+			path = BusinessCardScanner;
 			sourceTree = "<group>";
 		};
 		38F3E16218EFE5A4005760F6 /* include */ = {
@@ -472,7 +513,35 @@
 			path = tesseract;
 			sourceTree = "<group>";
 		};
+		9EB6AB482738D9E900F870D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EB6AB472738D9E900F870D7 /* BusinessCardScanner.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9EB6AB462738D9E900F870D7 /* BusinessCardScanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EB6AB602738D9EB00F870D7 /* Build configuration list for PBXNativeTarget "BusinessCardScanner" */;
+			buildPhases = (
+				9EB6AB432738D9E900F870D7 /* Sources */,
+				9EB6AB442738D9E900F870D7 /* Frameworks */,
+				9EB6AB452738D9E900F870D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BusinessCardScanner;
+			productName = BusinessCardScanner;
+			productReference = 9EB6AB472738D9E900F870D7 /* BusinessCardScanner.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		387701DE18E3C3590035CE60 /* Project object */ = {
@@ -480,8 +549,13 @@
 			attributes = {
 				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "Abhilash S T P";
+				TargetAttributes = {
+					9EB6AB462738D9E900F870D7 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
 			};
-			buildConfigurationList = 387701E118E3C3590035CE60 /* Build configuration list for PBXProject "Business Card Scanner" */;
+			buildConfigurationList = 387701E118E3C3590035CE60 /* Build configuration list for PBXProject "BusinessCardScanner" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -490,23 +564,62 @@
 				Base,
 			);
 			mainGroup = 387701DD18E3C3590035CE60;
-			productRefGroup = 387701E718E3C3590035CE60 /* Products */;
+			productRefGroup = 9EB6AB482738D9E900F870D7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				9EB6AB462738D9E900F870D7 /* BusinessCardScanner */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXVariantGroup section */
-		387701F218E3C3590035CE60 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				387701F318E3C3590035CE60 /* en */,
+/* Begin PBXResourcesBuildPhase section */
+		9EB6AB452738D9E900F870D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EB6AB862738E7F700F870D7 /* Images.xcassets in Resources */,
+				9EB6AB842738E7CE00F870D7 /* tessdata in Resources */,
+				9EB6AB832738E6B400F870D7 /* license.rtf in Resources */,
+				9EB6AB762738E65B00F870D7 /* settings.png in Resources */,
+				9EB6AB752738E65600F870D7 /* gallery.png in Resources */,
+				9EB6AB822738E6B000F870D7 /* faq.rtf in Resources */,
+				9EB6AB572738D9EA00F870D7 /* Assets.xcassets in Resources */,
+				9EB6AB6C2738E51C00F870D7 /* Main.storyboard in Resources */,
+				9EB6AB852738E7E200F870D7 /* grey man cropped.png in Resources */,
 			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EB6AB432738D9E900F870D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EB6AB6F2738E5A900F870D7 /* ViewController.m in Sources */,
+				9EB6AB792738E67000F870D7 /* UIImage+OpenCV.mm in Sources */,
+				9EB6AB7B2738E68100F870D7 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				9EB6AB812738E6A200F870D7 /* FAQTableViewController.m in Sources */,
+				9EB6AB6D2738E59C00F870D7 /* CustomImagePickerController.m in Sources */,
+				9EB6AB772738E66600F870D7 /* ImageProcessor.cpp in Sources */,
+				9EB6AB7E2738E69500F870D7 /* CameraViewController.m in Sources */,
+				9EB6AB642738E0FD00F870D7 /* main.m in Sources */,
+				9EB6AB632738E0EA00F870D7 /* AppDelegate.m in Sources */,
+				9EB6AB782738E66B00F870D7 /* GeneralContours.mm in Sources */,
+				9EB6AB7C2738E68800F870D7 /* CustomCameraView.m in Sources */,
+				9EB6AB7A2738E67B00F870D7 /* ContactsViewController.m in Sources */,
+				9EB6AB7D2738E69000F870D7 /* PhotoCell.m in Sources */,
+				9EB6AB802738E69D00F870D7 /* DetailSettingsViewController.m in Sources */,
+				9EB6AB7F2738E69900F870D7 /* SettingsTableViewController.m in Sources */,
+				9EB6AB6B2738E3BC00F870D7 /* TesseractSettingsModel.m in Sources */,
+				9EB6AB6E2738E5A000F870D7 /* ImageProcessingImplementation.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
 		387701FB18E3C3590035CE60 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -549,12 +662,16 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${PROJECT_DIR}/BusinessCardScanner/BusinessCardScanner-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -566,9 +683,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/BusinessCardScanner/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -603,30 +724,154 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${PROJECT_DIR}/BusinessCardScanner/BusinessCardScanner-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/BusinessCardScanner/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
+				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+		9EB6AB5E2738D9EB00F870D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4QD4LN7PUZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BusinessCardScanner/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to camera.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app requires access to contacts.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.stpabhi.BusinessCardScanner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9EB6AB5F2738D9EB00F870D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4QD4LN7PUZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BusinessCardScanner/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to camera.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app requires access to contacts.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.stpabhi.BusinessCardScanner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		387701E118E3C3590035CE60 /* Build configuration list for PBXProject "Business Card Scanner" */ = {
+		387701E118E3C3590035CE60 /* Build configuration list for PBXProject "BusinessCardScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3877021618E3C3590035CE60 /* Debug */,
 				3877021718E3C3590035CE60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EB6AB602738D9EB00F870D7 /* Build configuration list for PBXNativeTarget "BusinessCardScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EB6AB5E2738D9EB00F870D7 /* Debug */,
+				9EB6AB5F2738D9EB00F870D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
