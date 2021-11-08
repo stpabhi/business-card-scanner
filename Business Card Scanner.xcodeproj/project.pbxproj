@@ -218,7 +218,7 @@
 		387701DD18E3C3590035CE60 = {
 			isa = PBXGroup;
 			children = (
-				387701EF18E3C3590035CE60 /* Tesseract */,
+				387701EF18E3C3590035CE60 /* Business Card Scanner */,
 				387701E818E3C3590035CE60 /* Frameworks */,
 				387701E718E3C3590035CE60 /* Products */,
 			);
@@ -246,7 +246,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		387701EF18E3C3590035CE60 /* Tesseract */ = {
+		387701EF18E3C3590035CE60 /* Business Card Scanner */ = {
 			isa = PBXGroup;
 			children = (
 				38B93AB51901DEC900DCFED7 /* grey man cropped.png */,
@@ -292,8 +292,7 @@
 				3877020118E3C3590035CE60 /* Images.xcassets */,
 				387701F018E3C3590035CE60 /* Supporting Files */,
 			);
-			name = Tesseract;
-			path = "Tesseract BizScanner";
+			path = "Business Card Scanner";
 			sourceTree = "<group>";
 		};
 		387701F018E3C3590035CE60 /* Supporting Files */ = {
@@ -482,7 +481,7 @@
 				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "Abhilash S T P";
 			};
-			buildConfigurationList = 387701E118E3C3590035CE60 /* Build configuration list for PBXProject "Tesseract" */;
+			buildConfigurationList = 387701E118E3C3590035CE60 /* Build configuration list for PBXProject "Business Card Scanner" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -623,7 +622,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		387701E118E3C3590035CE60 /* Build configuration list for PBXProject "Tesseract" */ = {
+		387701E118E3C3590035CE60 /* Build configuration list for PBXProject "Business Card Scanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3877021618E3C3590035CE60 /* Debug */,
