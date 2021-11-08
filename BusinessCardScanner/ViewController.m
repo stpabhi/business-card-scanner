@@ -36,15 +36,6 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-//    self.navigationItem.leftBarButtonItem.title = @"\u2699";
-//    UIFont *customFont = [UIFont fontWithName:@"Helvetica" size:24.0];
-//    NSDictionary *fontDictionary = @{NSFontAttributeName : customFont};
-//    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
-    
-    //self.navigationController.navigationBar.backgroundColor = [UIColor darkTextColor];
-    //self.view.backgroundColor = [UIColor colorWithRed:128/255.0f green:128/255.0f blue:128/255.0f alpha:1.0];
-    //self.view.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
-    self.collectionView.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
     _assets = [@[] mutableCopy];
     __block NSMutableArray *tmpAssets = [@[] mutableCopy];
     // 1
@@ -121,7 +112,6 @@
     
     ALAsset *asset = self.assets[indexPath.row];
     cell.asset = asset;
-    cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
 //    self.assetCount = self.assets.count;
     [self viewAppeared];
     return cell;
@@ -178,7 +168,6 @@
     
     if([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
-        self.customVC.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
         [self presentViewController:self.customVC animated:YES completion:nil];
     }
 
@@ -206,7 +195,6 @@
                                      initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
         //set our custom overlay view
         self.customVC.cameraOverlayView = overlay;
-        self.customVC.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
         [self presentViewController:self.customVC animated:YES completion:nil];
     }
 }
@@ -277,7 +265,6 @@
 //}
 @synthesize library = _library;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    self.customVC.activityIndicator.color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0];
     [self.customVC.activityIndicator startAnimating];
     [self.customVC.view addSubview:self.customVC.activityIndicator];
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];

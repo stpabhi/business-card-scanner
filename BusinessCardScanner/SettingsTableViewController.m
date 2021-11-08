@@ -26,7 +26,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationItem.title = @"Settings";
-    self.tableView.backgroundColor = [UIColor colorWithRed:255/255.0f green:219/255.0f blue:76/255.0f alpha:1.0];
 }
 
 - (void)viewDidLoad
@@ -89,7 +88,6 @@
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
-    mc.navigationBar.tintColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
 
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];

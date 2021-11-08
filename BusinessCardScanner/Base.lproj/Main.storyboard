@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="lep-Ha-J8H">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tesseract-->
+        <!--Business Card Scanner-->
         <scene sceneID="LnF-m8-GyL">
             <objects>
                 <viewController id="If2-bS-Fdo" customClass="ViewController" sceneMemberID="viewController">
@@ -20,6 +21,7 @@
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y3R-nB-JHe">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="955"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Sdt-57-bXe">
                                     <size key="itemSize" width="104" height="104"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -77,22 +79,19 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="camera" id="Vtz-2f-IPD">
-                            <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="openCamera:" destination="If2-bS-Fdo" id="EUy-sR-WQ2"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem systemItem="flexibleSpace" id="sr8-9I-3EG"/>
-                        <barButtonItem image="gallery.png" id="Q6j-tO-p1p">
-                            <color key="tintColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem title="Item" image="photo" catalog="system" id="Q6j-tO-p1p">
                             <connections>
                                 <action selector="accessPhotos:" destination="If2-bS-Fdo" id="yvr-8K-8fn"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Tesseract" id="bG5-fK-Umx">
-                        <barButtonItem key="leftBarButtonItem" image="settings.png" id="D66-Lv-LRO">
-                            <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <navigationItem key="navigationItem" title="Business Card Scanner" id="bG5-fK-Umx">
+                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="D66-Lv-LRO">
                             <connections>
                                 <segue destination="AdU-DB-s7i" kind="modal" id="Q97-Vp-Hod"/>
                             </connections>
@@ -104,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNu-TU-i5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8266.6666666666679" y="520.3125"/>
+            <point key="canvasLocation" x="-8809" y="528"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="rU2-jB-iUV">
@@ -117,34 +116,61 @@
                         <sections>
                             <tableViewSection id="ZMS-pa-kMX">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ajg-1e-IEo">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qXk-2Z-nky" style="IBUITableViewCellStyleDefault" id="Ajg-1e-IEo">
                                         <rect key="frame" x="0.0" y="10" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ajg-1e-IEo" id="rPC-v0-Y5x">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="qXk-2Z-nky">
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="YcS-z7-QBd" kind="push" id="4aF-wa-ZT7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RJD-Nv-vkL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="eH0-Cy-tCj" style="IBUITableViewCellStyleDefault" id="RJD-Nv-vkL">
                                         <rect key="frame" x="0.0" y="54" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJD-Nv-vkL" id="6h1-jV-WuB">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="eH0-Cy-tCj">
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="YcS-z7-QBd" kind="push" id="I2k-Yx-QUr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gd7-5u-inx">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="GT4-sc-urm" style="IBUITableViewCellStyleDefault" id="gd7-5u-inx">
                                         <rect key="frame" x="0.0" y="98" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gd7-5u-inx" id="lnO-58-rhL">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="GT4-sc-urm">
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -157,7 +183,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="bLh-XE-UY8">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="GZP-9U-83V">
-                            <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="dismissSettingsViewController:" destination="XbU-mo-tow" id="kh8-PF-zxU"/>
                             </connections>
@@ -166,7 +191,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Pv-Cs-0dV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7175.36231884058" y="520.3125"/>
+            <point key="canvasLocation" x="-7275" y="520"/>
         </scene>
         <!--Detail Settings View Controller-->
         <scene sceneID="iSN-jn-MI0">
@@ -182,13 +207,12 @@
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQT-83-R4c">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="YcS-z7-QBd" id="p87-eF-626"/>
                                 </connections>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DQT-83-R4c" firstAttribute="top" secondItem="zsN-qg-tfD" secondAttribute="top" id="B9H-5H-hld"/>
                             <constraint firstItem="DQT-83-R4c" firstAttribute="leading" secondItem="zsN-qg-tfD" secondAttribute="leading" id="Xit-fk-QsK"/>
@@ -227,7 +251,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nx-Hk-F4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8824.6376811594218" y="520.3125"/>
+            <point key="canvasLocation" x="-9799" y="520"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nfm-aa-Bhp">
@@ -245,7 +269,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SzT-bk-vVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7715.9420289855079" y="520.3125"/>
+            <point key="canvasLocation" x="-7965" y="528"/>
         </scene>
         <!--Custom Image Picker Controller-->
         <scene sceneID="wLN-nv-6h5">
@@ -264,20 +288,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xe5-af-5kC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7550.7246376811599" y="912.72321428571422"/>
+            <point key="canvasLocation" x="-5848" y="611"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="I2k-Yx-QUr"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="gallery.png" width="30" height="22"/>
-        <image name="settings.png" width="24" height="24"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
